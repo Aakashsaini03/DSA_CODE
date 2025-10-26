@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>Ans(vector<int>&ans,int target)
+{
+    int n=ans.size();
+    int l=0,r=n-1;
+    int sum=0;
+    while(r<n)
+    {
+        sum=ans[l]+ans[r];
+        if(sum==target)
+          return {l+1,r+1};
+         else if(sum<target)
+        {
+            
+            l++;
+
+        }  
+        else 
+          r--;
+
+
+    }
+    return {-1,-1};
+}
+int main()
+{
+    int n,target;
+    cout<<"Enter the number of element"<<endl;
+    cin>>n;
+    cout<<"target"<<endl;
+    cin>>target;
+    vector<int>arr(n);
+    cout<<"Enter the element"<<endl;
+    for(int i=0;i<n;i++)
+    {
+      cin>>arr[i];
+    }
+    vector<int>ans=Ans(arr,target);
+    cout<<"output"<<endl;
+    for(int i=0;i<2;i++)
+    {
+        cout<<ans[i]<<" ";
+    }
+}
